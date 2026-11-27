@@ -1,0 +1,242 @@
+:root {
+  --bg-deep: #0c1412;
+  --bg-mid: #13201c;
+  --ink: #e8f2ec;
+  --muted: #8aa396;
+  --line: rgba(232, 242, 236, 0.12);
+  --accent: #f0b429;
+  --p1: #e74c3c;
+  --p2: #3498db;
+  --p3: #2ecc71;
+  --font-display: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Lucida Grande", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(46, 204, 113, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 10%, rgba(52, 152, 219, 0.12), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(231, 76, 60, 0.1), transparent 55%),
+    linear-gradient(165deg, var(--bg-deep), var(--bg-mid) 45%, #0a100e);
+}
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+.header {
+  margin-bottom: 1.25rem;
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.tagline {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.arena-panel {
+  position: relative;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent),
+    #0a1210;
+  overflow: hidden;
+}
+
+#arena {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 14, 12, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-card {
+  text-align: center;
+  padding: 1.5rem 1.75rem;
+}
+
+.overlay-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.overlay-sub {
+  margin: 0.4rem 0 1.1rem;
+  color: var(--muted);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.panel {
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.rules, .log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rules li, .log li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.swatch.p1 { background: var(--p1); }
+.swatch.p2 { background: var(--p2); }
+.swatch.p3 { background: var(--p3); }
+
+.hint {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.35rem;
+  margin: 0 0.1rem;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.control-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.control-picker button {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.control-picker button:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.control-picker button.active {
+  border-color: var(--accent);
+  background: rgba(240, 180, 41, 0.08);
+}
+
+.control-picker .dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+}
+
+button#restart-btn,
+button.ghost {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #1a1406;
+  font-weight: 700;
+  padding: 0.65rem 1.1rem;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+button#restart-btn:hover,
+button.ghost:hover {
+  filter: brightness(1.08);
+}
+
+.log {
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.log li.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

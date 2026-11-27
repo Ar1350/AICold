@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elimination Arena</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1 class="brand">Elimination Arena</h1>
+      <p class="tagline">Three fighters. One chain. Last survivor wins.</p>
+    </header>
+
+    <main class="layout">
+      <section class="arena-panel">
+        <canvas id="arena" width="800" height="560" aria-label="Game arena"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-card">
+            <p id="overlay-title" class="overlay-title">Winner</p>
+            <p id="overlay-sub" class="overlay-sub"></p>
+            <button id="restart-btn" type="button">Play again</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>You control</h2>
+          <div id="control-picker" class="control-picker"></div>
+          <p class="hint">Move with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys. The other two are AI.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Rules</h2>
+          <ul class="rules">
+            <li><span class="swatch p1"></span> 1 eliminates 2</li>
+            <li><span class="swatch p2"></span> 2 eliminates 3</li>
+            <li><span class="swatch p3"></span> 3 eliminates 1</li>
+          </ul>
+          <p class="hint">Last player standing wins.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Eliminations</h2>
+          <ul id="log" class="log"></ul>
+        </section>
+
+        <button id="restart-side" class="ghost" type="button">Restart</button>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
